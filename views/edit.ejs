@@ -23,11 +23,36 @@
       </div>
     </div>
   </header>
-  <div class="text-center" style="padding-bottom: 20px;">
-    <a href="/posts/edit/<%= post._id %>" class="btn btn-primary"><span>Update</span></a>									
-  </div>
-  <div class="text-center" style="padding-bottom: 20px;">
-    <a a href="/posts/<%= post._id %>?_method=DELETE" class="btn btn-danger" onclick="return confirm('ARE YOU SURE?')"><span>Delete</span></a>									
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <form method="POST" action="/posts/<%= post._id %>?_method=PUT" autocomplete="off">
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Post Title</label>
+                      <input type="text" class="form-control" value="<%=post.title%>" name="title" id="name" required data-validation-required-message="Please enter your name.">
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Post Detail</label>
+                      <textarea rows="5" class="form-control" value="<%=post.detail%>" name="detail" id="message" required data-validation-required-message="Please enter a message."><%=post.detail%></textarea>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <br>
+                  <div id="success"></div>
+                  <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
   <!-- Post Content
   <article>
